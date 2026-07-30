@@ -1,0 +1,12 @@
+---
+title: "Nota rápida: WinMTR vs tracert"
+category: anotacao
+tags: [redes, diagnóstico]
+excerpt: "Uma anotação curta sobre quando usar WinMTR em vez de tracert para diagnosticar perda de pacotes."
+---
+
+Anotação rápida do suporte de rede desta semana: `tracert` mostra a rota até um destino, mas só faz uma passada — se um salto específico está instável, um único traceroute pode não capturar isso.
+
+O **WinMTR** combina traceroute com ping contínuo: ele refaz a rota repetidamente e acumula estatísticas de perda de pacote por salto, ao longo do tempo. Isso é o que realmente importa quando o problema é intermitente — perda de pacote que "some" em um traceroute único.
+
+Regra prática que fica pra próxima vez: se o cliente reclama de lentidão intermitente (não constante), rodar WinMTR por alguns minutos antes de tirar qualquer conclusão sobre onde está o gargalo.

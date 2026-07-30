@@ -1,0 +1,22 @@
+---
+title: "Busca adversária: minimax e poda alfa-beta na prática"
+category: pesquisa
+tags: [inteligência-artificial, algoritmos]
+excerpt: "Revisando os fundamentos de busca adversária — de jogos de soma zero até a poda alfa-beta — com exemplos passo a passo."
+---
+
+Estudando para a disciplina de Inteligência Artificial, voltei aos fundamentos de busca adversária: como um agente decide a melhor jogada quando um oponente está ativamente tentando atrapalhá-lo.
+
+## Minimax
+
+A ideia central do minimax é simples: em um jogo de soma zero com dois jogadores, um deles tenta **maximizar** o valor do estado final, e o outro tenta **minimizá-lo**. A árvore de busca alterna entre esses dois papéis a cada nível.
+
+## Poda alfa-beta
+
+A poda alfa-beta é uma otimização sobre o minimax: ela permite ignorar ramos inteiros da árvore que não podem influenciar a decisão final, sem alterar o resultado. Na prática, isso significa manter dois valores durante a busca — alfa (o melhor valor que o maximizador já garantiu) e beta (o melhor valor que o minimizador já garantiu) — e cortar a busca assim que um ramo não puder melhorar esses valores.
+
+## Pegadinhas comuns de prova
+
+- A ordem em que os nós são explorados afeta *quanto* se corta, mas nunca o resultado final.
+- Poda alfa-beta com ordenação ótima reduz a complexidade de O(b^d) para aproximadamente O(b^(d/2)).
+- É fácil confundir *quando* podar: a condição é alfa ≥ beta, não alfa > beta.

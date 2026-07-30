@@ -1,0 +1,72 @@
+# 🌘 Seu blog
+
+Este é um blog pronto pra usar, construído com [Jekyll](https://jekyllrb.com/) — uma ferramenta que transforma arquivos de texto simples (Markdown) em um site. O GitHub Pages faz essa transformação **automaticamente** toda vez que você sobe um arquivo novo. Você não precisa instalar nada no seu computador para publicar.
+
+## 1. Colocar o blog no ar (uma vez só)
+
+1. Crie uma conta em [github.com](https://github.com) se ainda não tiver.
+2. Clique em **New repository**. Dê o nome exatamente `SEU-USUARIO.github.io` (troque `SEU-USUARIO` pelo seu nome de usuário do GitHub — isso é importante, é esse nome específico que ativa o GitHub Pages).
+3. Marque como **Public** e crie o repositório vazio (sem README, sem .gitignore — já temos os nossos).
+4. Envie os arquivos desta pasta para esse repositório. O jeito mais simples, sem usar terminal:
+   - Na página do repositório, clique em **Add file → Upload files**.
+   - Arraste TODOS os arquivos e pastas desta pasta (`meu-blog`) para lá — incluindo os que começam com `_` e `.` (eles podem ficar escondidos no seu explorador de arquivos; ative "mostrar arquivos ocultos" se precisar).
+   - Clique em **Commit changes**.
+5. Vá em **Settings → Pages** no seu repositório. Em "Build and deployment", escolha **Deploy from a branch**, branch `main`, pasta `/ (root)`. Salve.
+6. Espere de 1 a 3 minutos. Seu blog vai estar em `https://SEU-USUARIO.github.io`.
+
+## 2. Publicar um post novo (toda vez)
+
+1. Dentro da pasta `_posts`, crie um arquivo novo chamado assim:
+   ```
+   AAAA-MM-DD-titulo-curto.md
+   ```
+   Exemplo: `2026-08-01-meu-primeiro-post.md`. A data no nome do arquivo define quando o post aparece — não precisa ser a data de hoje.
+
+2. Comece o arquivo com este bloco (chamado *front matter*) e depois escreva o texto normalmente em Markdown:
+   ```markdown
+   ---
+   title: "Título do post"
+   category: anotacao
+   tags: [tag1, tag2]
+   excerpt: "Um resumo de uma frase que aparece na listagem."
+   ---
+
+   Aqui vai o texto do post. Você pode usar **negrito**, *itálico*,
+   [links](https://exemplo.com), listas, e blocos de código.
+   ```
+3. Em `category`, escolha uma das três opções — isso decide qual lua aparece ao lado do post:
+   - `projeto` 🌘 — algo que você construiu
+   - `pesquisa` 🌕 — algo que você estudou a fundo
+   - `anotacao` 🌑 — um pensamento breve
+4. Suba esse arquivo pro GitHub (Upload files de novo, ou arraste na pasta `_posts`). Em 1–2 minutos o post aparece no ar.
+
+## 3. Editar o site
+
+- **Nome e descrição do blog:** edite `_config.yml`.
+- **Página "Sobre":** edite `about.md`.
+- **Cores, fontes, espaçamento:** tudo está em `assets/css/style.css`, comentado por seção (cabeçalho, listagem de posts, post individual, etc).
+
+## 4. Ver o site no seu computador antes de publicar (opcional)
+
+Isso é opcional — você pode sempre subir direto pro GitHub e ver o resultado lá. Mas se quiser pré-visualizar localmente e tiver Ruby instalado:
+
+```bash
+bundle install
+bundle exec jekyll serve
+```
+
+E abra `http://localhost:4000` no navegador.
+
+## Estrutura de arquivos
+
+```
+meu-blog/
+├── _config.yml          # título, descrição, configurações
+├── _posts/               # cada post é um arquivo aqui
+├── _layouts/             # os "moldes" HTML das páginas (não precisa mexer)
+├── _includes/            # pedaços reutilizáveis: cabeçalho, rodapé, ícones
+├── assets/css/style.css  # toda a aparência visual
+├── index.html            # página inicial (lista os posts automaticamente)
+├── about.md              # página "Sobre"
+└── README.md             # este arquivo
+```
